@@ -1,0 +1,6 @@
+{% macro inject_js(filename) -%}
+    <script src="{{ url_for('static', filename=filename) }}"></script>
+{%- endmacro %}
+{% macro inject_css(filename) -%}
+    <link rel="{{ url_for('static', filename=filename) }}" />
+{%- endmacro %}
