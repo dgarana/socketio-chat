@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% from '_macros/_scripts.html' import inject_js %}
+{% block title %} Index {% endblock %}
+{% block content %}
+<div class="jumbotron">
+  <h1> Chat example </h1>
+</div>
+<div class="container" id="chat_wrapper">
+</div>
+<div class="container" id="chat_controller">
+  <form id="chat_text">
+    <input id="chat_message" class="form-control form-control-sm" type="text">
+  </form>
+</div>
+<div class="container" id="chat_status">
+  <span id="status">Not connected</span> // <span id="username">Not connected</span>
+</div>
+{% endblock %}
+{% block body_includes %}
+  {{ super() }}
+  <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+  {{ inject_js(filename='js/socketiochat.js') }}
+{% endblock %}
